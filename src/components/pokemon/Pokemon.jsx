@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+
 const Pokemon = ({ poke }) => {
 
   const [pokemon, setPokemon] = useState();
@@ -15,16 +16,16 @@ const Pokemon = ({ poke }) => {
   }, [])
 
   return (
-    <div>
+    <>
       {
         (pokemon != undefined) ?
-          <div>
-            <p>{pokemon.id}</p>
-            <p>{pokemon.name}</p>
-            <img src={pokemon.sprites.front_default} width="150" />
-          </div>
+          
+        <div className="nes-container is-dark with-title is-centered" style={{margin:'1rem'}}>
+          <p className='title'>{ pokemon.name[0].toUpperCase() + pokemon.name.substring(1)+' - #'+ pokemon.id.toString().padStart(3, '0')}</p>
+          <img className='centrarPoke' src={pokemon.sprites.front_default} height="200" />
+        </div>
           : "Vacio"}
-    </div>
+    </>
 
 
   )
